@@ -10,6 +10,8 @@
   "author": "Eagle Eye",
   "license": "ISC",
   "dependencies": {
-    "near-api-js": "^4.0.1"
+    "near-api-js": "^4.0.1",
+    "near-cli": "^4.0.13",
+    "near-sdk-js": "^2.0.0-0"
   }
 }
