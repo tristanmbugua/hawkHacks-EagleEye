@@ -1,0 +1,15 @@
+{
+  "name": "hawkhacks-eagleeye",
+  "version": "1.0.0",
+  "description": "Eagle eye's project at HawkHacks.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eagle Eye",
+  "license": "ISC",
+  "dependencies": {
+    "near-api-js": "^4.0.1"
+  }
+}
