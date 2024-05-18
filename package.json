@@ -1,5 +1,6 @@
 {
   "name": "hawkhacks-eagleeye",
+  "type": "module",
   "version": "1.0.0",
   "description": "Eagle eye's project at HawkHacks.",
   "main": "app.js",
