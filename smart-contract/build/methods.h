@@ -1,0 +1,5 @@
+DEFINE_NEAR_METHOD(addUser)
+DEFINE_NEAR_METHOD(getAllUsers)
+DEFINE_NEAR_METHOD(main_contract)
+DEFINE_NEAR_METHOD(testMessage)
+DEFINE_NEAR_METHOD(withdraw)
