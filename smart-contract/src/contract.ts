@@ -14,6 +14,7 @@ import {
     
     constructor() {
       this.users =  new UnorderedMap<Number>("users");
+
     }
 
 
@@ -23,13 +24,30 @@ import {
         this.users.set(user, amount);
     }
 
+    //Remove users
+    @call({})
+    removeUser({user}: {user: string}) {
+        this.users.remove(user);
+    }
+
+    //View user balance
+    @view({})
+    viewUser({user}: {user: string}) {
+        return this.users.get(user);
+    }
+
+    //Add to user
+    @call({})
+    increaseUser({user, amount}: {user: string, amount: number}) {
+        this.users.set(user, this.users.get(user).valueOf()+amount);
+    }
 
     //Attempt withdrawal
     @view({})
     withdraw(user: string, withdrawalAmount: number): number {
         var userAmount = this.users[user];
 
-        if ( userAmount !== undefined) {
+        if ( userAmount !== undefined ) {
           if (withdrawalAmount > userAmount) {
             this.users[user] = 0;
             return withdrawalAmount - userAmount;

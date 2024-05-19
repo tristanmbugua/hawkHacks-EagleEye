@@ -812,14 +812,12 @@ function NearBindgen({
   };
 }
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2;
-let main_contract = (_dec = NearBindgen({}), _dec2 = call({}), _dec3 = view(), _dec4 = view(), _dec5 = view(), _dec(_class = (_class2 = class main_contract {
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _class, _class2;
+let main_contract = (_dec = NearBindgen({}), _dec2 = call({}), _dec3 = call({}), _dec4 = view(), _dec5 = call({}), _dec6 = view(), _dec7 = view(), _dec8 = view(), _dec(_class = (_class2 = class main_contract {
   //Users implemented using dictionary
 
   constructor() {
     this.users = new UnorderedMap("users");
-
-    // this.users.();
   }
 
   //Add users
@@ -828,6 +826,28 @@ let main_contract = (_dec = NearBindgen({}), _dec2 = call({}), _dec3 = view(), _
     amount
   }) {
     this.users.set(user, amount);
+  }
+
+  //Remove users
+  removeUser({
+    user
+  }) {
+    this.users.remove(user);
+  }
+
+  //View user balance
+  viewUser({
+    user
+  }) {
+    return this.users.get(user);
+  }
+
+  //Add to user
+  increaseUser({
+    user,
+    amount
+  }) {
+    this.users.set(user, this.users.get(user).valueOf() + amount);
   }
 
   //Attempt withdrawal
@@ -853,7 +873,7 @@ let main_contract = (_dec = NearBindgen({}), _dec2 = call({}), _dec3 = view(), _
   testMessage() {
     return ["Active"];
   }
-}, (_applyDecoratedDescriptor(_class2.prototype, "addUser", [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, "addUser"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "withdraw", [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, "withdraw"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "getAllUsers", [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, "getAllUsers"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "testMessage", [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, "testMessage"), _class2.prototype)), _class2)) || _class);
+}, (_applyDecoratedDescriptor(_class2.prototype, "addUser", [_dec2], Object.getOwnPropertyDescriptor(_class2.prototype, "addUser"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "removeUser", [_dec3], Object.getOwnPropertyDescriptor(_class2.prototype, "removeUser"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "viewUser", [_dec4], Object.getOwnPropertyDescriptor(_class2.prototype, "viewUser"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "increaseUser", [_dec5], Object.getOwnPropertyDescriptor(_class2.prototype, "increaseUser"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "withdraw", [_dec6], Object.getOwnPropertyDescriptor(_class2.prototype, "withdraw"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "getAllUsers", [_dec7], Object.getOwnPropertyDescriptor(_class2.prototype, "getAllUsers"), _class2.prototype), _applyDecoratedDescriptor(_class2.prototype, "testMessage", [_dec8], Object.getOwnPropertyDescriptor(_class2.prototype, "testMessage"), _class2.prototype)), _class2)) || _class);
 function testMessage() {
   const _state = main_contract._getState();
   if (!_state && main_contract._requireInit()) {
@@ -893,6 +913,47 @@ function withdraw() {
   const _result = _contract.withdraw(_args);
   if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(main_contract._serialize(_result, true));
 }
+function increaseUser() {
+  const _state = main_contract._getState();
+  if (!_state && main_contract._requireInit()) {
+    throw new Error("Contract must be initialized");
+  }
+  const _contract = main_contract._create();
+  if (_state) {
+    main_contract._reconstruct(_contract, _state);
+  }
+  const _args = main_contract._getArgs();
+  const _result = _contract.increaseUser(_args);
+  main_contract._saveToStorage(_contract);
+  if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(main_contract._serialize(_result, true));
+}
+function viewUser() {
+  const _state = main_contract._getState();
+  if (!_state && main_contract._requireInit()) {
+    throw new Error("Contract must be initialized");
+  }
+  const _contract = main_contract._create();
+  if (_state) {
+    main_contract._reconstruct(_contract, _state);
+  }
+  const _args = main_contract._getArgs();
+  const _result = _contract.viewUser(_args);
+  if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(main_contract._serialize(_result, true));
+}
+function removeUser() {
+  const _state = main_contract._getState();
+  if (!_state && main_contract._requireInit()) {
+    throw new Error("Contract must be initialized");
+  }
+  const _contract = main_contract._create();
+  if (_state) {
+    main_contract._reconstruct(_contract, _state);
+  }
+  const _args = main_contract._getArgs();
+  const _result = _contract.removeUser(_args);
+  main_contract._saveToStorage(_contract);
+  if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(main_contract._serialize(_result, true));
+}
 function addUser() {
   const _state = main_contract._getState();
   if (!_state && main_contract._requireInit()) {
@@ -908,5 +969,5 @@ function addUser() {
   if (_result !== undefined) if (_result && _result.constructor && _result.constructor.name === "NearPromise") _result.onReturn();else env.value_return(main_contract._serialize(_result, true));
 }
 
-export { addUser, getAllUsers, main_contract, testMessage, withdraw };
+export { addUser, getAllUsers, increaseUser, main_contract, removeUser, testMessage, viewUser, withdraw };
 //# sourceMappingURL=contract.js.map

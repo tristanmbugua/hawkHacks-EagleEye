@@ -2,7 +2,7 @@ import { keyStores, KeyPair, connect, WalletConnection, Contract } from 'near-ap
 
 const myKeyStore = new keyStores.InMemoryKeyStore();
 
-const PRIVATE_KEY = "5UBL7YXB3yhujgkoPEMSoqkcxRLTXZgJKrLzkyUUhPsWgfRcbaZveT79oL6uMeTw2N5eU7WPzVfeC3NDFU5Gmt9D";
+const PRIVATE_KEY = "3CpQTsQW6QAyYp7h8T2TzUgQyJiG5SbMSrm75A76zfqzzKUsuTeEFGXC6SbAHGwtZZbZzpSqZsC3KDuF9joERkeJ";
 
 const keyPair = KeyPair.fromString(PRIVATE_KEY);
 
@@ -24,56 +24,19 @@ const nearConnection = await connect(connectionConfig);
 const account = await nearConnection.account(accountId);
 
 
-//Use sub-accounts for other users.
+const changeContract = new Contract(
+  account,
+  "tristanmbugua.testnet", {
+  changeMethods: ["addUser", "removeUser", "increaseUser"]
+});
+
+
+const viewContract = new Contract(
+  account,
+  "tristanmbugua.testnet", {
+  viewMethods: ["viewUser", "withdraw", "getAllUsers"]
+});
 
 
 
-
-console.log(await account.);
-
-await account.deleteAccount("baraka.tristanmbugua.testnet");
-
-// await account.deleteKey("A12A2DSZwjbSWSuAg9f7MCdhJbQJLdJRQWnkmh6N1ARK")
-
-// console.log(await account.getAccountBalance());
-
-// // await account.sendMoney(
-// //     "benjaminbates.testnet",
-// //     "900000000000000000000000"
-// // );
-
-// // console.log(await account.getAccountBalance());
-
-// const viewContract = new Contract(account, "tristanmbugua.testnet", {
-//   viewMethods: ["testMessage"]
-// });
-
-// console.log(await viewContract.testMessage({}));
-
-
-// account.addKey()
-
-// const viewContract = new Contract(
-//   account,
-//   "tristanmbugua.testnet", {
-//   viewMethods: ["testMessage"]
-// });
-
-// console.log(await viewContract.testMessage({}));
-
-// const callContract = new Contract(account, "tristanmbugua.testnet", {
-//   changeMethods: ["addUser"]
-// });
-
-// console.log(await callContract.addUser(
-//   {
-//     user: "Baraka",
-//     amount: "15"
-//   }
-//   ));
-
-// const viewContract = new Contract(account, "tristanmbugua.testnet", {
-//   viewMethods: ["getAllUsers"]
-// });
-
-// console.log(await viewContract.getAllUsers());
+export default {changeContract, viewContract};
