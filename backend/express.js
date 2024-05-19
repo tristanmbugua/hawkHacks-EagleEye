@@ -74,7 +74,7 @@ router.route("/increaseUser").put(
         }
     }
 );
-router.route("/viewUser").get(
+router.route("/viewUser").post(
     async (req, res, next) => {
         try {
             
