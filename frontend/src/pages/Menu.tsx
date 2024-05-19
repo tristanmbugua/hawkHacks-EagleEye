@@ -37,21 +37,36 @@ export default function App() {
             <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
                     <Box display="flex">
-                        <Link to="/" className={classes.link}>
-                            <Button className={classes.button} color="inherit">Home</Button>
+                        <Link to="/addUser" className={classes.link}>
+                            <Button className={classes.button} color="inherit">Add User</Button>
                         </Link>
-                        <Link to="/view" className={classes.link}>
-                            <Button className={classes.button} color="inherit">View</Button>
-                        </Link>
-                        <Link to="/transactions" className={classes.link}>
-                            <Button className={classes.button} color="inherit">Transactions</Button>
+                        <Link to="/removeUser" className={classes.link}>
+                            <Button className={classes.button} color="inherit">Remove User</Button>
                         </Link>
                         <Link to="/deposit" className={classes.link}>
                             <Button className={classes.button} color="inherit">Deposit</Button>
                         </Link>
+                        <Link to="/view" className={classes.link}>
+                            <Button className={classes.button} color="inherit">Balance</Button>
+                        </Link>
+                        
                         <Link to="/withdrawal" className={classes.link}>
                             <Button className={classes.button} color="inherit">Withdrawal</Button>
                         </Link>
+                        
+                        {/* <Link to="/allUsers" className={classes.link}>
+                            <Button className={classes.button} color="inherit">View All</Button>
+                        </Link> */}
+                        <Link to="/" className={classes.link}>
+                            <Button></Button>
+                        </Link>
+                        
+                        {/* <Link to="/transactions" className={classes.link}>
+                            <Button className={classes.button} color="inherit">Transactions</Button>
+                        </Link> */}
+                        
+                        
+                        
                     </Box>
                     <Box>
                         <Link to="/login" className={classes.link}>
