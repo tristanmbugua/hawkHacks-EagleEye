@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
 const App = () => {
-    const [balance, setBalance] = useState(null); // Updated initial state to null
+    const [balance, setBalance] = useState(''); // Empty initial balance
     const [transactionAmount, setTransactionAmount] = useState('');
-    const [transactionType, setTransactionType] = useState('deposit');
+    const [transactionType, setTransactionType] = useState('deposit'); // Default to deposit
 
     return (
         <div className="container">
             <h1 style={{ color: '#333', textAlign: 'center' }}>Account Balance</h1>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
                 <h2 style={{ marginRight: '10px' }}>Current Balance:</h2>
-                <h2 style={{ color: 'green' }}>{balance !== null ? `$${balance.toFixed(2)}` : 'N/A'}</h2>
+                <h2 style={{ color: 'green' }}>{balance ? `$${parseFloat(balance).toFixed(2)}` : 'N/A'}</h2>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px' }}>
                 <input
