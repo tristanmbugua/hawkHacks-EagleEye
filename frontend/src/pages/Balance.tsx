@@ -39,30 +39,29 @@ const readOnlyInputStyle = {
   };
 
 const Withdrawal = () => {
-  const [accountNumber, setAccountNumber] = useState('');
-  const [amount, setAmount] = useState('');
-  const [balance, setBalance] = useState();
+  const [user, setUser] = useState('');
 
   const handleWithdrawal = async (e) => {
+    alert(user);
     e.preventDefault();
   };
 
   return (
     <div style={containerStyle}>
-      <h1 style={titleStyle}>Deposit Funds</h1>
-      <p style={balanceTextStyle}>Account Balance:</p>
+      <h1 style={titleStyle}>Account Balance</h1>
+      {/* <p style={balanceTextStyle}>Account Balance:</p>
       <input 
         type="text"
         value= {'$'}
         readOnly
         style={readOnlyInputStyle}
-        />
+        /> */}
       <form style={formStyle} onSubmit={handleWithdrawal}>
         <input
-         type="number"
-         placeholder="Amount"
-         value={amount}
-         onChange={(e) => setAmount(e.target.value)} 
+         type="string"
+         placeholder="User"
+         value={user}
+         onChange={(e) => setUser(e.target.value)} 
          required
          style={{ padding: '0.75rem', margin: '0.5rem 0', border: '1px solid #ced4da', borderRadius: '4px', fontSize: '1rem' }}
         />

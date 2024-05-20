@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button: {
+        color: "#61dafbaa",
         marginLeft: theme.spacing(2),
     },
     loginButton: {
@@ -57,9 +58,9 @@ export default function App() {
                         {/* <Link to="/allUsers" className={classes.link}>
                             <Button className={classes.button} color="inherit">View All</Button>
                         </Link> */}
-                        <Link to="/" className={classes.link}>
+                        {/* <Link to="/" className={classes.link}>
                             <Button></Button>
-                        </Link>
+                        </Link> */}
                         
                         {/* <Link to="/transactions" className={classes.link}>
                             <Button className={classes.button} color="inherit">Transactions</Button>
@@ -68,11 +69,11 @@ export default function App() {
                         
                         
                     </Box>
-                    <Box>
+                    {/* <Box>
                         <Link to="/login" className={classes.link}>
                             <Button className={`${classes.button} ${classes.loginButton}`} color="inherit">Login</Button>
                         </Link>
-                    </Box>
+                    </Box> */}
                 </Toolbar>
             </AppBar>
         </>

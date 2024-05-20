@@ -39,34 +39,28 @@ const readOnlyInputStyle = {
   };
 
 const Withdrawal = () => {
-  const [accountNumber, setAccountNumber] = useState('');
+  const [user, setUser] = useState('');
   const [amount, setAmount] = useState('');
   const [balance, setBalance] = useState();
 
   const handleWithdrawal = async (e) => {
+    alert(user);
     e.preventDefault();
   };
 
   return (
     <div style={containerStyle}>
-      <h1 style={titleStyle}>Withdraw Funds</h1>
-      <p style={balanceTextStyle}>Account Balance:</p>
-      <input 
-        type="text"
-        value= {'$'}
-        readOnly
-        style={readOnlyInputStyle}
-        />
+      <h1 style={titleStyle}>Remove User</h1>
       <form style={formStyle} onSubmit={handleWithdrawal}>
         <input
-         type="number"
-         placeholder="Amount"
-         value={amount}
-         onChange={(e) => setAmount(e.target.value)} 
+         type="string"
+         placeholder="User"
+         value={user}
+         onChange={(e) => setUser(e.target.value)} 
          required
          style={{ padding: '0.75rem', margin: '0.5rem 0', border: '1px solid #ced4da', borderRadius: '4px', fontSize: '1rem' }}
         />
-        <button type="submit" style={{ padding: '0.75rem', margin: '0.5rem 0', backgroundColor: '#00CED1', color: 'white', border: 'none', borderRadius: '4px', fontSize: '1rem', cursor: 'pointer' }}>Withdraw</button>
+        <button type="submit" style={{ padding: '0.75rem', margin: '0.5rem 0', backgroundColor: '#00CED1', color: 'white', border: 'none', borderRadius: '4px', fontSize: '1rem', cursor: 'pointer' }}>Remove User</button>
       </form>
     </div>
   );

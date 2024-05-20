@@ -10,7 +10,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:3001',
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true
 }));
@@ -125,4 +125,3 @@ app.listen(2999,
         console.log("Server started!");
     }
 );
-
