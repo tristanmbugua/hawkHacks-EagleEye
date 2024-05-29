@@ -15,8 +15,14 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
     "@mui/material": "^5.15.18",
+    "@testing-library/react": "^15.0.7",
     "near-api-js": "^4.0.1",
     "near-cli": "^4.0.13",
-    "near-sdk-js": "^2.0.0-0"
+    "near-sdk-js": "^2.0.0-0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
